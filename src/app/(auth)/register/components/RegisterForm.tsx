@@ -69,7 +69,7 @@ export default function RegisterForm() {
                 </button>
             </div>
             <p className="mt-5 mx-auto text-sm">
-                Already have an Account? <Link href={"/login"}><strong>Login.</strong></Link> 
+                {"Already have an Account?"} <Link href={"/login"}><strong>Login.</strong></Link> 
             </p>
         </form>
     )

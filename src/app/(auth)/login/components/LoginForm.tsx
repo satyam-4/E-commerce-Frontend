@@ -91,7 +91,7 @@ export default function RegisterForm() {
                 </button>
             </div>
             <p className="mt-5 mx-auto text-sm">
-                Don't have an Account? <Link href={"/register"}><strong>Create new Account.</strong></Link> 
+                {"Don't have an Account?"} <Link href={"/register"}><strong>Create new Account.</strong></Link> 
             </p>
         </form>
     )
