@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AxiosError } from "axios";
 import CategorySkeleton from "./CategorySkeleton";
 import { Category } from "../types/category";
 
@@ -20,9 +21,10 @@ export default function CategoryGrid() {
                 { withCredentials: true }
             );
             setCategories(res.data.data);
-        } catch (err: any) {
+        } catch (err) {
+            const error = err as AxiosError<{ message: string }>;
             console.error("Error while fetching categories:", err);
-            setError(err?.response?.data?.message || "Something went wrong");
+            setError(error?.response?.data?.message || "Something went wrong");
         } finally {
             setIsLoading(false);
         }

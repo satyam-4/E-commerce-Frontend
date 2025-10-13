@@ -3,6 +3,7 @@
 import { ProductCardDetailed, ProductCardDetailedSkeleton } from "@/features/product/components";
 import ProductSidebarSkeleton from "@/features/product/components/ProductSidebar/ProductSidebarSkeleton";
 import axios from "axios";
+import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 
 interface Params {
@@ -42,9 +43,10 @@ export default function SubcategoryPage({ params }: { params: Promise<Params> })
             setErrors(null);
             const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/products?subcategory=${subcategory}`);
             setProducts(res?.data?.data);
-        } catch (err: any) {
+        } catch (err) {
+            const error = err as AxiosError<{ message: string }>;
             setIsLoading(false);
-            setErrors(err?.response?.data?.message);
+            setErrors(error?.response?.data?.message || "Something went wrong");
         } finally {
             setIsLoading(false);
         }

@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AxiosError } from "axios";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 
@@ -39,9 +40,10 @@ export default function CategoryPage({ params } : { params: Promise<Params> }) {
             );
             setSubcategories(res.data.data);
             return
-        } catch (err: any) {
+        } catch (err) {
+            const error = err as AxiosError<{ message: string }>;
             setIsLoading(false);
-            setError(err?.response?.data?.message);
+            setError(error?.response?.data?.message || "Something went wrong");
             console.log(err)
         } finally {
             setIsLoading(false);
