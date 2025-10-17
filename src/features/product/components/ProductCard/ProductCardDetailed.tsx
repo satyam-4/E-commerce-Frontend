@@ -21,12 +21,10 @@ export default function ProductCardDetailed({ productId, productName, productPri
                     <div className="w-[300px] h-[300px] bg-neutral-200 rounded-xl flex items-center justify-center text-center text-2xl font-bold text-zinc-500">
                         300 x 300
                     </div>
-                    {/* <Badge className="absolute top-0 px-3 py-1.5 text-sm bg-amber-600">
-                        Bestseller
-                    </Badge> */}
-                    <Badge className="absolute top-0 px-3 py-1.5 text-sm bg-red-600">
+                    <Badge variant="bestseller" />
+                    {/* <Badge variant="new">
                         New
-                    </Badge>
+                    </Badge> */}
                 </div>
                 <div className="grow flex flex-col justify-between h-[300px]">
                     <div className="space-y-1 mb-2">
@@ -44,9 +42,13 @@ export default function ProductCardDetailed({ productId, productName, productPri
                                     ${productPrice}
                                 </p>
                             </div>
-                            {/* <Badge className="px-2 py-1 bg-red-700">
-                                Deal of the Day
-                            </Badge> */}
+                            <div className="flex gap-1 items-center">
+                                <Badge variant="deal-of-the-day" />
+                                <p className="font-normal text-red-700">
+                                    20% off
+                                </p>
+
+                            </div>
 
                             {
                                 productStock <= 5 && (
@@ -58,20 +60,9 @@ export default function ProductCardDetailed({ productId, productName, productPri
                         </h3>
 
                         <div className="my-2 flex items-center gap-2">
-                            <Badge className="px-3 py-1.5 bg-blue-500">
-                                <BadgeCheckIcon style={{ width: "1.2rem", height: "1.2rem" }} />
-                                Verified
-                            </Badge>
-
-                            <Badge className="px-3 py-1.5 bg-green-600">
-                                <Leaf style={{ width: "1.2rem", height: "1.2rem" }} />
-                                Eco-Friendly
-                            </Badge>
-
-                            <Badge className="px-3 py-1.5 text-green-300">
-                                <Truck style={{ width: "1.2rem", height: "1.2rem" }} />
-                                Free Delivery
-                            </Badge>
+                            <Badge variant="verified" />
+                            <Badge variant="eco-friendly" />
+                            <Badge variant="free-delivery" />
                         </div>
                         {
                             productStock <= 0 && (
