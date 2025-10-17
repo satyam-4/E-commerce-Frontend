@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProductCardDetailedSkeleton() {
     return (
-        <ul className="space-y-5">
+        <ul className="grow space-y-5">
             {
                 Array.from({ length: 20 }).map((_, i) => (
                     <li key={i} className="p-3 border border-zinc-200 shadow-md w-full flex items-center gap-8">
