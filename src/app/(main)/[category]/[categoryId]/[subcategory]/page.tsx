@@ -56,8 +56,6 @@ export default function SubcategoryPage({ params }: { params: Promise<Params> })
         fetchProducts();
     }, []);
 
-    console.log(products);
-
     if (errors) {
         return (
             <section className="px-5">
@@ -82,7 +80,10 @@ export default function SubcategoryPage({ params }: { params: Promise<Params> })
                 <h1 className="my-3 text-3xl font-semibold">
                     {subcategory.charAt(0).toUpperCase() + subcategory.slice(1)}
                 </h1>
-                <ProductCardDetailedSkeleton />
+                <div className="flex gap-4">
+                    <ProductSidebarSkeleton />
+                    <ProductCardDetailedSkeleton />
+                </div>
             </section>
         )
     }
