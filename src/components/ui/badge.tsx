@@ -56,12 +56,12 @@ const badgeConfig = {
   bestseller: {
     label: "Bestseller",
     icon: null,
-    className: "rounded-none absolute left-1 top-1 px-3 py-1 text-sm bg-amber-600 text-white"
+    className: "rounded-none absolute left-0 top-0 px-3 py-1 text-sm bg-amber-600 text-white"
   },
   new: {
     label: "New",
     icon: null,
-    className: "absolute left-1 top-1 px-3 py-1.5 text-sm bg-red-600 text-white"
+    className: "absolute left-0 top-0 px-3 py-1.5 text-sm bg-red-600 text-white"
   },
   "deal-of-the-day": {
     label: "Deal of the Day",
